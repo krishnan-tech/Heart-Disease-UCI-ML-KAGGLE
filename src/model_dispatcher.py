@@ -9,6 +9,11 @@ models = {
     "decision_tree_entropy": tree.DecisionTreeClassifier(
         criterion="entropy"
     ),
-    "rf": ensemble.RandomForestClassifier(max_depth=5),
+    "rf": ensemble.RandomForestClassifier(
+        # around 80 to 90
+        criterion="gini", max_depth=7, n_estimators=200
+        # arouond 80 to 85
+        # criterion="entropy", max_depth=1, n_estimators=300
+    ),
     "logistic_regression": LogisticRegression(),
 }
