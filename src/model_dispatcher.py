@@ -2,6 +2,10 @@
 from sklearn import tree
 from sklearn import ensemble
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.naive_bayes import GaussianNB
+from xgboost import XGBClassifier
+
 models = {
     "decision_tree_gini": tree.DecisionTreeClassifier(
         criterion="gini"
@@ -16,4 +20,7 @@ models = {
         # criterion="entropy", max_depth=1, n_estimators=300
     ),
     "logistic_regression": LogisticRegression(),
+    "svm":  SVC(kernel='rbf'),
+    "naive_bayes": GaussianNB(),
+    'xgboost':  XGBClassifier(),
 }
