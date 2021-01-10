@@ -62,10 +62,11 @@ def run(fold, model):
     # calculate the accuracy
     train_accuracy = metrics.accuracy_score(y_train, train_preds)
     test_accuracy = metrics.accuracy_score(y_valid, test_preds)
+    auc_ = auc(fpr, tpr)
     confusion_matrix_value = confusion_matrix(y_valid, test_preds)
     print(confusion_matrix_value)
     print(
-        f"Fold={fold}, Test Accuracy={test_accuracy}, Train Accuracy={train_accuracy}, Model={model}")
+        f"Fold={fold}, Test Accuracy={test_accuracy}, Train Accuracy={train_accuracy}, AUC={auc_} Model={model}")
     print("========================================================")
 
     # save the model
