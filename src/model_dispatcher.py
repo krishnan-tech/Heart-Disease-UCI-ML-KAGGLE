@@ -25,4 +25,6 @@ models = {
     "naive_bayes": GaussianNB(),
     "xgboost":  XGBClassifier(),
     "knn": KNeighborsClassifier(n_neighbors=2),
+    # Weight 2 for logistic regression to avaoid overfitting in random forest
+    "votingclassifier": ensemble.VotingClassifier(estimators=[('lr', LogisticRegression()), ('rf', ensemble.RandomForestClassifier(criterion="entropy", max_depth=1, n_estimators=300)), ('gnb', XGBClassifier())], voting='soft', weights=[2, 1, 1], flatten_transform=True)
 }
