@@ -5,6 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from xgboost import XGBClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 models = {
     "decision_tree_gini": tree.DecisionTreeClassifier(
@@ -22,5 +23,6 @@ models = {
     "logistic_regression": LogisticRegression(),
     "svm":  SVC(kernel='rbf'),
     "naive_bayes": GaussianNB(),
-    'xgboost':  XGBClassifier(),
+    "xgboost":  XGBClassifier(),
+    "knn": KNeighborsClassifier(n_neighbors=2),
 }
